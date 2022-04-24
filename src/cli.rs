@@ -31,11 +31,11 @@ pub type Result<T = (), E = Error> = core::result::Result<T, E>;
 pub struct Arguments {
     /// Command
     #[clap(subcommand)]
-    command: Command,
+    pub command: Command,
 
     /// Verbosity
     #[clap(flatten)]
-    verbose: Verbosity,
+    pub verbose: Verbosity,
 }
 
 /// Defines commands for the [`run`] function.
@@ -52,7 +52,7 @@ macro_rules! define_commands {
 
         /// Runs the CLI on the arguments provided by the command line.
         #[inline]
-        pub fn run() -> Result<()> {
+        pub fn run() -> Result {
             let args = Arguments::try_parse()?;
             match args.command {
                 $(Command::$name(command) => crate::$path::run(command, args.verbose)),*

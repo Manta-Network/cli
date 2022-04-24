@@ -16,14 +16,41 @@
 
 //! Wallet CLI
 
-use crate::cli::{Args, Result, Verbosity};
+use crate::cli::{Args, Result, Subcommand, Verbosity};
+use std::path::PathBuf;
 
-///
+/// Wallet CLI
 #[derive(Args, Clone, Debug)]
-pub struct Arguments;
+pub struct Arguments {
+    /// Wallet Command
+    #[clap(subcommand)]
+    pub command: Command,
+}
+
+/// Wallet Command
+#[derive(Clone, Debug, Subcommand)]
+pub enum Command {
+    /// Generate a new Wallet
+    Generate,
+
+    /// Loads an Existing Wallet
+    Start {
+        /// Path to Wallet Source File
+        ///
+        /// If unset, uses the default known wallet if it exists.
+        source: Option<PathBuf>,
+    },
+
+    /// Lists all Known Wallets
+    List,
+}
 
 ///
-pub fn run(args: Arguments, verbose: Verbosity) -> Result<()> {
-    let _ = (args, verbose);
-    todo!()
+#[inline]
+pub fn run(args: Arguments, verbose: Verbosity) -> Result {
+    match args.command {
+        Command::Generate => todo!(),
+        Command::Start { source } => todo!(),
+        Command::List => todo!(),
+    }
 }
