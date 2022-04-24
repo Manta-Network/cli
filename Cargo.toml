@@ -25,6 +25,13 @@ is-it-maintained-open-issues = { repository = "Manta-Network/cli" }
 maintenance = { status = "actively-developed" }
 
 [dependencies]
-clap = { version = "3.1.12", default-features = false, features = ["std"] }
+clap = { version = "3.1.12", default-features = false, features = ["color", "derive", "std", "suggestions", "unicode", "wrap_help"] }
+clap-verbosity-flag = { version = "1.0.0", default-features = false }
 manta-signer = { git = "https://github.com/manta-network/manta-signer", branch = "manta-rs-integration" }
+manta-util = { git = "https://github.com/manta-network/manta-rs", version = "0.4.0" }
+wild = { version = "2.0.4", default-features = false }
+
+[build-dependencies]
+clap_mangen = { version = "0.1.6", default-features = false }
+clap_complete = { version = "3.1.2", default-features = false }
 

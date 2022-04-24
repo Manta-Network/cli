@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with manta-cli.  If not, see <http://www.gnu.org/licenses/>.
 
-//! Manta Pay Command Line Interface
+//! Manta Command Line Interface
 
 #![cfg_attr(doc_cfg, feature(doc_cfg))]
 #![forbid(rustdoc::broken_intra_doc_links)]
@@ -23,3 +23,4 @@
 extern crate alloc;
 
 pub mod cli;
+pub mod wallet;

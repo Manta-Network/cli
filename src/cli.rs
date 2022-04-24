@@ -14,14 +14,61 @@
 // You should have received a copy of the GNU General Public License
 // along with manta-cli.  If not, see <http://www.gnu.org/licenses/>.
 
-//! Manta Pay Command Line Interface
+//! Manta Command Line Interface
 
-use std::io;
+pub use clap::{Args, Error, Parser, Subcommand};
+pub use clap_verbosity_flag::Verbosity;
 
+/// CLI Result Type
 ///
-pub type Result<T> = io::Result<T>;
+/// Uses `()` as the default type on the `Ok` branch and [`Error`] as the default type on the `Err`
+/// branch.
+pub type Result<T = (), E = Error> = core::result::Result<T, E>;
 
-///
-pub fn run() -> Result<()> {
-    Ok(())
+/// Manta CLI
+#[derive(Clone, Debug, Parser)]
+#[clap(about, author, version, long_about = None, propagate_version = true)]
+pub struct Arguments {
+    /// Command
+    #[clap(subcommand)]
+    command: Command,
+
+    /// Verbosity
+    #[clap(flatten)]
+    verbose: Verbosity,
+}
+
+/// Defines commands for the [`run`] function.
+macro_rules! define_commands {
+    ($(($doc:expr, $name:ident, $path:tt)),*$(,)?) => {
+        /// Manta CLI Sub-Command
+        #[derive(Clone, Debug, Subcommand)]
+        pub enum Command {
+            $(
+                #[doc = $doc]
+                $name(crate::$path::Arguments)
+            ),*
+        }
+
+        /// Runs the CLI on the arguments provided by the command line.
+        #[inline]
+        pub fn run() -> Result<()> {
+            let args = Arguments::try_parse()?;
+            match args.command {
+                $(Command::$name(command) => crate::$path::run(command, args.verbose)),*
+            }
+        }
+    }
+}
+
+define_commands! {
+    ("Define or Use a Manta Wallet", Wallet, wallet),
+}
+
+/// Runs the [`run`] method and then exits on error.
+#[inline]
+pub fn run_and_exit() {
+    if let Err(err) = run() {
+        err.exit()
+    }
 }

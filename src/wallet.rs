@@ -14,8 +14,16 @@
 // You should have received a copy of the GNU General Public License
 // along with manta-cli.  If not, see <http://www.gnu.org/licenses/>.
 
-use manta_cli::cli;
+//! Wallet CLI
 
-fn main() {
-    cli::run_and_exit()
+use crate::cli::{Args, Result, Verbosity};
+
+///
+#[derive(Args, Clone, Debug)]
+pub struct Arguments;
+
+///
+pub fn run(args: Arguments, verbose: Verbosity) -> Result<()> {
+    let _ = (args, verbose);
+    todo!()
 }
