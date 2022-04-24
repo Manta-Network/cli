@@ -5,3 +5,20 @@
 
 _Command Line Interface for Interacting with Manta Protocols_
 
+## About
+
+The Manta CLI is a developer and user tool for interacting with the Manta Protocols.
+
+## Installation
+
+To install the CLI make sure you have `cargo` installed and then run the following command:
+
+```shell
+cargo install --git "https://github.com/manta-network/cli"
+```
+
+## Usage
+
+The CLI has the following modules:
+
+- `wallet`: Implementation of the Manta Wallet Protocol
