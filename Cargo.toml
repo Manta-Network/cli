@@ -30,8 +30,12 @@ clap-verbosity-flag = { version = "1.0.0", default-features = false }
 derivative = { version = "2.2.0", default-features = false, features = ["use_core"] }
 derive_more = { version = "0.99.17", default-features = false, features = ["display", "error", "from_str"] }
 manta = { git = "https://github.com/manta-network/Manta", default-features = false }
-manta-signer = { git = "https://github.com/manta-network/manta-signer", branch = "manta-rs-integration", default-features = false }
+manta-crypto = { git = "https://github.com/manta-network/manta-rs", default-features = false, features = ["getrandom"] }
+manta-signer = { git = "https://github.com/manta-network/manta-signer", branch = "manta-rs-integration", default-features = false, features = ["log"] }
 manta-util = { git = "https://github.com/manta-network/manta-rs", default-features = false }
+rpassword = { version = "6.0.1", default-features = false }
+tempfile = { version = "3.3.0", default-features = false }
+tokio = { version = "1.18.0", default-features = false, features = ["macros", "rt-multi-thread"] }
 wild = { version = "2.0.4", default-features = false }
 
 [build-dependencies]

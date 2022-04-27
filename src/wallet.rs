@@ -16,41 +16,177 @@
 
 //! Wallet CLI
 
-use crate::cli::{Args, Result, Subcommand, Verbosity};
+use crate::{
+    cli::{ErrorKind, Parser, ParserExt, Result, Subcommand, Verbosity},
+    node::Runtime,
+    util,
+};
+use manta_crypto::rand::{CryptoRng, OsRng, RngCore, Sample};
+use manta_signer::{
+    config::Config,
+    secret::{Authorizer, Password, PasswordFuture, SecretString},
+    service,
+};
 use std::path::PathBuf;
 
-/// Wallet CLI
-#[derive(Args, Clone, Debug)]
-pub struct Arguments {
-    /// Wallet Command
-    #[clap(subcommand)]
-    pub command: Command,
+/// Builds the default [`Config`] for a wallet.
+#[inline]
+pub fn build_config() -> Result<Config> {
+    match Config::try_default() {
+        Some(config) => Ok(config),
+        _ => Err(Arguments::error(
+            ErrorKind::Io,
+            "Unable to build default signer configuration.",
+        )),
+    }
+}
+
+/// User Authorizer with `STDIN` Password Input
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct User;
+
+impl Authorizer for User {
+    #[inline]
+    fn password(&mut self) -> PasswordFuture {
+        Box::pin(async move {
+            match tokio::task::spawn_blocking(|| rpassword::prompt_password("Enter Password: "))
+                .await
+            {
+                Ok(Ok(password)) => Password::from_known(SecretString::new(password)),
+                _ => Password::from_unknown(),
+            }
+        })
+    }
+}
+
+/// Mock User Authorizer for Temporary Signers
+pub struct MockUser(SecretString);
+
+impl MockUser {
+    /// Builds a new [`MockUser`] from a random password sampled from `rng`.
+    #[inline]
+    pub fn new<R>(rng: &mut R) -> Self
+    where
+        R: CryptoRng + RngCore + ?Sized,
+    {
+        Self(SecretString::new(u128::gen(rng).to_string()))
+    }
+}
+
+impl Authorizer for MockUser {
+    #[inline]
+    fn password(&mut self) -> PasswordFuture {
+        Box::pin(async move { Password::from_known(self.0.clone()) })
+    }
 }
 
 /// Wallet Command
 #[derive(Clone, Debug, Subcommand)]
 pub enum Command {
-    /// Generate a new Wallet
-    Generate,
-
-    /// Loads an Existing Wallet
+    /// Starts a Local Signer
     Start {
-        /// Path to Wallet Source File
+        /// Path to Wallet Data File
         ///
-        /// If unset, uses the default known wallet if it exists.
-        source: Option<PathBuf>,
+        /// If unset, uses the default known wallet location if it exists.
+        data: Option<PathBuf>,
+
+        /// Use a temporary directory for storing the wallet state
+        #[clap(long)]
+        temp: bool,
+
+        /// Specify the runtime to use for this wallet
+        #[clap(arg_enum, long)]
+        runtime: Runtime,
+
+        /// Runs only the signer portion of the wallet without keeping track of the balance state
+        #[clap(long)]
+        signer_only: bool,
     },
 
     /// Lists all Known Wallets
     List,
 }
 
-///
-#[inline]
-pub fn run(args: Arguments, verbose: Verbosity) -> Result {
-    match args.command {
-        Command::Generate => todo!(),
-        Command::Start { source } => todo!(),
-        Command::List => todo!(),
+/// Wallet CLI
+#[derive(Clone, Debug, Parser)]
+pub struct Arguments {
+    /// Wallet Command
+    #[clap(subcommand)]
+    pub command: Command,
+}
+
+impl Arguments {
+    /// Runs a wallet implementation according to [`Self`].
+    #[inline]
+    pub fn run(self, verbose: Verbosity) -> Result {
+        // TODO: Use the verbosity flag.
+        let _ = verbose;
+        match self.command {
+            Command::Start {
+                data,
+                temp,
+                runtime,
+                signer_only,
+            } => {
+                if !signer_only {
+                    // FIXME: For now we don't have the full wallet implementation here.
+                    return Self::with_error(
+                        ErrorKind::ValueValidation,
+                        "For the current implementation, you must include the `--signer-only` flag.",
+                    );
+                }
+                let mut config = build_config()?;
+                match (data, temp) {
+                    (Some(path), false) => {
+                        config.data_path = path;
+                    }
+                    (None, true) => match tempfile::tempdir() {
+                        Ok(directory) => {
+                            config.data_path = directory.path().join("storage.dat");
+                        }
+                        _ => Self::with_error(
+                            ErrorKind::Io,
+                            "Unable to create temporary directory for wallet state.",
+                        )?,
+                    },
+                    (Some(_), true) => Self::with_error(
+                        ErrorKind::ArgumentConflict,
+                        "Cannot use the temporary file argument with the data path argument.",
+                    )?,
+                    _ => {}
+                }
+                if let Runtime::Manta | Runtime::Calamari = runtime {
+                    // FIXME: For now we are not able to switch runtimes on the `service`.
+                    Self::with_error(
+                        ErrorKind::ValueValidation,
+                        "For the current implementation, only dolphin is allowed as the wallet runtime.",
+                    )?;
+                }
+                match util::block_on(async {
+                    if temp {
+                        service::start(config, MockUser::new(&mut OsRng)).await
+                    } else {
+                        service::start(config, User).await
+                    }
+                }) {
+                    Ok(Err(err)) => Self::with_error(
+                        ErrorKind::Io,
+                        format_args!("Unable to start signer service: {:?}", err),
+                    )?,
+                    Err(err) => Self::with_error(
+                        ErrorKind::Io,
+                        format_args!("Unable to start `tokio` runtime: {}", err),
+                    )?,
+                    _ => {}
+                }
+            }
+            Command::List => {
+                let config = build_config()?;
+                if config.data_path.exists() {
+                    println!("Default Dolphin Wallet: {}", config.data_path.display());
+                }
+            }
+        }
+        Ok(())
     }
 }

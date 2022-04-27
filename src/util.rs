@@ -14,16 +14,26 @@
 // You should have received a copy of the GNU General Public License
 // along with manta-cli.  If not, see <http://www.gnu.org/licenses/>.
 
-//! Manta Command Line Interface
+//! Manta Command Line Interface Utilities
 
-#![cfg_attr(doc_cfg, feature(doc_cfg))]
-#![forbid(rustdoc::broken_intra_doc_links)]
-#![forbid(missing_docs)]
+use core::future::Future;
+use std::io;
+use tokio::runtime::{Builder, Runtime};
 
-extern crate alloc;
-extern crate derive_more;
+/// Creates a default [`Runtime`] and then runs [`block_on`](Runtime::block_on).
+#[inline]
+pub fn block_on<F>(future: F) -> io::Result<F::Output>
+where
+    F: Future,
+{
+    Ok(Runtime::new()?.block_on(future))
+}
 
-pub mod cli;
-pub mod node;
-pub mod util;
-pub mod wallet;
+/// Uses the `builder` to create a [`Runtime`] and then runs [`block_on`](Runtime::block_on).
+#[inline]
+pub fn build_and_block_on<F>(builder: &mut Builder, future: F) -> io::Result<F::Output>
+where
+    F: Future,
+{
+    Ok(builder.build()?.block_on(future))
+}

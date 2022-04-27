@@ -16,15 +16,49 @@
 
 //! Manta Command Line Interface
 
-pub use clap::{Args, Error, Parser, Subcommand};
+pub use clap::{ArgEnum, Args, CommandFactory, Error, ErrorKind, Parser, Subcommand};
 pub use clap_verbosity_flag::Verbosity;
-pub use core::str::FromStr;
+pub use core::{fmt::Display, str::FromStr};
 
 /// CLI Result Type
 ///
 /// Uses `()` as the default type on the `Ok` branch and [`Error`] as the default type on the `Err`
 /// branch.
 pub type Result<T = (), E = Error> = core::result::Result<T, E>;
+
+/// Builds an error with `kind` and `message` in the given command context `C`.
+#[inline]
+pub fn error<C, D>(kind: ErrorKind, message: D) -> Error
+where
+    C: CommandFactory,
+    D: Display,
+{
+    C::command().error(kind, message)
+}
+
+/// Parser Extension Trait
+pub trait ParserExt: Parser {
+    /// Builds an error with `kind` and `message` in the command context given by `Self`.
+    #[inline]
+    fn error<D>(kind: ErrorKind, message: D) -> Error
+    where
+        D: Display,
+    {
+        error::<Self, D>(kind, message)
+    }
+
+    /// Builds a `Result::Err` variant for an error with `kind` and `message` in the command context
+    /// given by `Self`.
+    #[inline]
+    fn with_error<D>(kind: ErrorKind, message: D) -> Result
+    where
+        D: Display,
+    {
+        Err(Self::error(kind, message))
+    }
+}
+
+impl<P> ParserExt for P where P: Parser {}
 
 /// Manta CLI
 #[derive(Clone, Debug, Parser)]
@@ -51,20 +85,26 @@ macro_rules! define_commands {
             ),*
         }
 
-        /// Runs the CLI on the arguments provided by the command line.
+        /// Runs the CLI on the given `args`.
         #[inline]
-        pub fn run() -> Result {
-            let args = Arguments::try_parse()?;
+        pub fn run_with(args: Arguments) -> Result {
             match args.command {
-                $(Command::$name(command) => crate::$path::run(command, args.verbose)),*
+                $(Command::$name(command) => command.run(args.verbose)),*
             }
         }
+
     }
 }
 
 define_commands! {
-    ("Define or Use a Manta Wallet", Wallet, wallet),
     ("Run a Manta Node", Node, node),
+    ("Define or Use a Manta Wallet", Wallet, wallet),
+}
+
+/// Runs the CLI on the arguments provided by the command line.
+#[inline]
+pub fn run() -> Result {
+    run_with(Arguments::try_parse()?)
 }
 
 /// Runs the [`run`] method and then exits on error.
