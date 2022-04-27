@@ -21,6 +21,8 @@
 #![forbid(missing_docs)]
 
 extern crate alloc;
+extern crate derive_more;
 
 pub mod cli;
+pub mod node;
 pub mod wallet;

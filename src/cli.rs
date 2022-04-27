@@ -18,6 +18,7 @@
 
 pub use clap::{Args, Error, Parser, Subcommand};
 pub use clap_verbosity_flag::Verbosity;
+pub use core::str::FromStr;
 
 /// CLI Result Type
 ///
@@ -63,6 +64,7 @@ macro_rules! define_commands {
 
 define_commands! {
     ("Define or Use a Manta Wallet", Wallet, wallet),
+    ("Run a Manta Node", Node, node),
 }
 
 /// Runs the [`run`] method and then exits on error.
