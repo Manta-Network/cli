@@ -25,5 +25,5 @@ extern crate derive_more;
 
 pub mod cli;
 pub mod node;
+pub mod signer;
 pub mod util;
-pub mod wallet;

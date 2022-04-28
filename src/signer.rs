@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with manta-cli.  If not, see <http://www.gnu.org/licenses/>.
 
-//! Wallet CLI
+//! Signer CLI
 
 use crate::{
     cli::{ErrorKind, Parser, ParserExt, Result, Subcommand, Verbosity},
@@ -29,7 +29,7 @@ use manta_signer::{
 };
 use std::path::PathBuf;
 
-/// Builds the default [`Config`] for a wallet.
+/// Builds the default [`Config`] for a signer.
 #[inline]
 pub fn build_config() -> Result<Config> {
     match Config::try_default() {
@@ -80,43 +80,39 @@ impl Authorizer for MockUser {
     }
 }
 
-/// Wallet Command
+/// Signer Command
 #[derive(Clone, Debug, Subcommand)]
 pub enum Command {
     /// Starts a Local Signer
     Start {
-        /// Path to Wallet Data File
+        /// Path to Signer Data File
         ///
-        /// If unset, uses the default known wallet location if it exists.
+        /// If unset, uses the default known signer location if it exists.
         data: Option<PathBuf>,
 
-        /// Use a temporary directory for storing the wallet state
+        /// Use a temporary directory for storing the signer state
         #[clap(long)]
         temp: bool,
 
-        /// Specify the runtime to use for this wallet
+        /// Specify the runtime to use for this signer
         #[clap(arg_enum, long)]
         runtime: Runtime,
-
-        /// Runs only the signer portion of the wallet without keeping track of the balance state
-        #[clap(long)]
-        signer_only: bool,
     },
 
-    /// Lists all Known Wallets
+    /// Lists all Known Signers
     List,
 }
 
-/// Wallet CLI
+/// Signer CLI
 #[derive(Clone, Debug, Parser)]
 pub struct Arguments {
-    /// Wallet Command
+    /// Signer Command
     #[clap(subcommand)]
     pub command: Command,
 }
 
 impl Arguments {
-    /// Runs a wallet implementation according to [`Self`].
+    /// Runs a signer implementation according to [`Self`].
     #[inline]
     pub fn run(self, verbose: Verbosity) -> Result {
         // TODO: Use the verbosity flag.
@@ -126,15 +122,7 @@ impl Arguments {
                 data,
                 temp,
                 runtime,
-                signer_only,
             } => {
-                if !signer_only {
-                    // FIXME: For now we don't have the full wallet implementation here.
-                    return Self::with_error(
-                        ErrorKind::ValueValidation,
-                        "For the current implementation, you must include the `--signer-only` flag.",
-                    );
-                }
                 let mut config = build_config()?;
                 match (data, temp) {
                     (Some(path), false) => {
@@ -146,7 +134,7 @@ impl Arguments {
                         }
                         _ => Self::with_error(
                             ErrorKind::Io,
-                            "Unable to create temporary directory for wallet state.",
+                            "Unable to create temporary directory for signer state.",
                         )?,
                     },
                     (Some(_), true) => Self::with_error(
@@ -159,7 +147,7 @@ impl Arguments {
                     // FIXME: For now we are not able to switch runtimes on the `service`.
                     Self::with_error(
                         ErrorKind::ValueValidation,
-                        "For the current implementation, only dolphin is allowed as the wallet runtime.",
+                        "For the current implementation, only dolphin is allowed as the signer runtime.",
                     )?;
                 }
                 match util::block_on(async {
@@ -183,7 +171,7 @@ impl Arguments {
             Command::List => {
                 let config = build_config()?;
                 if config.data_path.exists() {
-                    println!("Default Dolphin Wallet: {}", config.data_path.display());
+                    println!("Default Dolphin Signer: {}", config.data_path.display());
                 }
             }
         }

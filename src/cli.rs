@@ -98,7 +98,7 @@ macro_rules! define_commands {
 
 define_commands! {
     ("Run a Manta Node", Node, node),
-    ("Define or Use a Manta Wallet", Wallet, wallet),
+    ("Run a Manta Signer", Signer, signer),
 }
 
 /// Runs the CLI on the arguments provided by the command line.
