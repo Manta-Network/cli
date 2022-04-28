@@ -29,14 +29,14 @@ use manta_signer::{
 };
 use std::path::PathBuf;
 
-/// Builds the default [`Config`] for a signer.
+/// Builds the default [`Config`] for a Signer.
 #[inline]
 pub fn build_config() -> Result<Config> {
     match Config::try_default() {
         Some(config) => Ok(config),
         _ => Err(Arguments::error(
             ErrorKind::Io,
-            "Unable to build default signer configuration.",
+            "Unable to build default Signer configuration.",
         )),
     }
 }
@@ -85,18 +85,22 @@ impl Authorizer for MockUser {
 pub enum Command {
     /// Starts a Local Signer
     Start {
+        /// Specify the runtime to use for this Signer
+        #[clap(arg_enum, long)]
+        runtime: Runtime,
+
         /// Path to Signer Data File
         ///
-        /// If unset, uses the default known signer location if it exists.
+        /// If unset, uses the default known Signer location if it exists.
         data: Option<PathBuf>,
 
-        /// Use a temporary directory for storing the signer state
+        /// Use a temporary directory for storing the Signer state
         #[clap(long)]
         temp: bool,
 
-        /// Specify the runtime to use for this signer
-        #[clap(arg_enum, long)]
-        runtime: Runtime,
+        /// Specify a custom serivce URL to use for this Signer
+        #[clap(long)]
+        url: Option<String>,
     },
 
     /// Lists all Known Signers
@@ -119,9 +123,10 @@ impl Arguments {
         let _ = verbose;
         match self.command {
             Command::Start {
+                runtime,
                 data,
                 temp,
-                runtime,
+                url,
             } => {
                 let mut config = build_config()?;
                 match (data, temp) {
@@ -149,6 +154,11 @@ impl Arguments {
                         ErrorKind::ValueValidation,
                         "For the current implementation, only dolphin is allowed as the signer runtime.",
                     )?;
+                }
+                if let Some(service_url) = url {
+                    // FIXME: Parse it as a socket address here so that we can validate it before
+                    //        passing it to the signer. This requires changes in the `Config` type.
+                    config.service_url = service_url;
                 }
                 match util::block_on(async {
                     if temp {
