@@ -132,15 +132,9 @@ impl Arguments {
                     (Some(path), false) => {
                         config.data_path = path;
                     }
-                    (None, true) => match tempfile::tempdir() {
-                        Ok(directory) => {
-                            config.data_path = directory.path().join("storage.dat");
-                        }
-                        _ => Self::with_error(
-                            ErrorKind::Io,
-                            "Unable to create temporary directory for signer state.",
-                        )?,
-                    },
+                    (None, true) => {
+                        config.data_path = Self::tempdir()?.path().join("storage.dat");
+                    }
                     (Some(_), true) => Self::with_error(
                         ErrorKind::ArgumentConflict,
                         "Cannot use the temporary file argument with the data path argument.",

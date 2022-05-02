@@ -25,6 +25,7 @@ is-it-maintained-open-issues = { repository = "Manta-Network/cli" }
 maintenance = { status = "actively-developed" }
 
 [dependencies]
+anyhow = { version = "1.0.57", default-features = false }
 async-std = { version = "1.11.0", default-features = false, features = ["attributes", "tokio1"] }
 clap = { version = "3.1.15", default-features = false, features = ["color", "derive", "std", "suggestions", "unicode", "wrap_help"] }
 clap-verbosity-flag = { version = "1.0.0", default-features = false }
@@ -32,6 +33,8 @@ derivative = { version = "2.2.0", default-features = false, features = ["use_cor
 derive_more = { version = "0.99.17", default-features = false, features = ["display", "error", "from_str"] }
 manta = { git = "https://github.com/manta-network/Manta", default-features = false }
 manta-crypto = { git = "https://github.com/manta-network/manta-rs", default-features = false, features = ["getrandom"] }
+manta-pay = { git = "https://github.com/manta-network/manta-rs", default-features = false, features = ["clap", "groth16", "simulation"] }
+manta-sdk = { git = "https://github.com/manta-network/sdk", default-features = false }
 manta-signer = { git = "https://github.com/manta-network/manta-signer", branch = "manta-rs-integration", default-features = false, features = ["log"] }
 manta-util = { git = "https://github.com/manta-network/manta-rs", default-features = false }
 rpassword = { version = "6.0.1", default-features = false }

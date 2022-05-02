@@ -19,6 +19,7 @@
 pub use clap::{ArgEnum, Args, CommandFactory, Error, ErrorKind, Parser, Subcommand};
 pub use clap_verbosity_flag::Verbosity;
 pub use core::{fmt::Display, str::FromStr};
+pub use tempfile::TempDir;
 
 /// CLI Result Type
 ///
@@ -34,6 +35,23 @@ where
     D: Display,
 {
     C::command().error(kind, message)
+}
+
+/// Generates a temporary directory in the given command context `C`.
+#[inline]
+pub fn tempdir<C>() -> Result<TempDir>
+where
+    C: CommandFactory,
+{
+    tempfile::tempdir().map_err(|err| {
+        error::<C, _>(
+            ErrorKind::Io,
+            format_args!(
+                "Unable to create temporary directory for signer state: {:?}",
+                err
+            ),
+        )
+    })
 }
 
 /// Parser Extension Trait
@@ -55,6 +73,12 @@ pub trait ParserExt: Parser {
         D: Display,
     {
         Err(Self::error(kind, message))
+    }
+
+    /// Generates a temporary directory in the given command context `C`.
+    #[inline]
+    fn tempdir() -> Result<TempDir> {
+        tempdir::<Self>()
     }
 }
 
@@ -99,6 +123,7 @@ macro_rules! define_commands {
 define_commands! {
     ("Run a Manta Node", Node, node),
     ("Run a Manta Signer", Signer, signer),
+    ("Run MantaPay Simulation", Sim, sim),
 }
 
 /// Runs the CLI on the arguments provided by the command line.
