@@ -25,7 +25,8 @@ is-it-maintained-open-issues = { repository = "Manta-Network/cli" }
 maintenance = { status = "actively-developed" }
 
 [dependencies]
-clap = { version = "3.1.12", default-features = false, features = ["color", "derive", "std", "suggestions", "unicode", "wrap_help"] }
+async-std = { version = "1.11.0", default-features = false, features = ["attributes", "tokio1"] }
+clap = { version = "3.1.15", default-features = false, features = ["color", "derive", "std", "suggestions", "unicode", "wrap_help"] }
 clap-verbosity-flag = { version = "1.0.0", default-features = false }
 derivative = { version = "2.2.0", default-features = false, features = ["use_core"] }
 derive_more = { version = "0.99.17", default-features = false, features = ["display", "error", "from_str"] }
@@ -35,7 +36,7 @@ manta-signer = { git = "https://github.com/manta-network/manta-signer", branch =
 manta-util = { git = "https://github.com/manta-network/manta-rs", default-features = false }
 rpassword = { version = "6.0.1", default-features = false }
 tempfile = { version = "3.3.0", default-features = false }
-tokio = { version = "1.18.0", default-features = false, features = ["macros", "rt-multi-thread"] }
+tokio = { version = "1.18.0", default-features = false }
 wild = { version = "2.0.4", default-features = false }
 
 [build-dependencies]

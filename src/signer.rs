@@ -19,7 +19,6 @@
 use crate::{
     cli::{ErrorKind, Parser, ParserExt, Result, Subcommand, Verbosity},
     node::Runtime,
-    util,
 };
 use manta_crypto::rand::{CryptoRng, OsRng, RngCore, Sample};
 use manta_signer::{
@@ -160,22 +159,18 @@ impl Arguments {
                     //        passing it to the signer. This requires changes in the `Config` type.
                     config.service_url = service_url;
                 }
-                match util::block_on(async {
+                // NOTE: We have to use `async_std` here because the `serivce` uses it internally.
+                if let Err(err) = async_std::task::block_on(async {
                     if temp {
                         service::start(config, MockUser::new(&mut OsRng)).await
                     } else {
                         service::start(config, User).await
                     }
                 }) {
-                    Ok(Err(err)) => Self::with_error(
+                    Self::with_error(
                         ErrorKind::Io,
                         format_args!("Unable to start signer service: {:?}", err),
-                    )?,
-                    Err(err) => Self::with_error(
-                        ErrorKind::Io,
-                        format_args!("Unable to start `tokio` runtime: {}", err),
-                    )?,
-                    _ => {}
+                    )?;
                 }
             }
             Command::List => {
