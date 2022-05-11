@@ -5056,19 +5056,30 @@ dependencies = [
 [[package]]
 name = "manta-accounting"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/manta-rs#21b6fd26020dd692b53c78072cf973210a5372f4"
+source = "git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync#5878fc047946f38067c0160b99649af374f4365c"
 dependencies = [
  "bitflags",
  "cocoon",
  "derivative",
  "derive_more",
+ "manta-crypto 0.4.0 (git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync)",
+ "manta-util 0.4.0 (git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync)",
+ "rand_chacha 0.3.1",
+]
+
+[[package]]
+name = "manta-accounting"
+version = "0.4.0"
+source = "git+https://github.com/manta-network/manta-rs#21b6fd26020dd692b53c78072cf973210a5372f4"
+dependencies = [
+ "derivative",
+ "derive_more",
  "futures 0.3.21",
  "indexmap",
- "manta-crypto",
- "manta-util",
+ "manta-crypto 0.4.0 (git+https://github.com/manta-network/manta-rs)",
+ "manta-util 0.4.0 (git+https://github.com/manta-network/manta-rs)",
  "parking_lot 0.12.0",
  "rand 0.8.5",
- "rand_chacha 0.3.1",
  "statrs",
 ]
 
@@ -5085,11 +5096,11 @@ dependencies = [
  "derivative",
  "derive_more",
  "manta",
- "manta-crypto",
- "manta-pay",
+ "manta-crypto 0.4.0 (git+https://github.com/manta-network/manta-rs)",
+ "manta-pay 0.4.0 (git+https://github.com/manta-network/manta-rs)",
  "manta-sdk",
  "manta-signer",
- "manta-util",
+ "manta-util 0.4.0 (git+https://github.com/manta-network/manta-rs)",
  "rpassword 6.0.1",
  "tempfile",
  "tokio",
@@ -5120,11 +5131,47 @@ dependencies = [
 [[package]]
 name = "manta-crypto"
 version = "0.4.0"
+source = "git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync#5878fc047946f38067c0160b99649af374f4365c"
+dependencies = [
+ "derivative",
+ "manta-util 0.4.0 (git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync)",
+ "rand_core 0.6.3",
+]
+
+[[package]]
+name = "manta-crypto"
+version = "0.4.0"
 source = "git+https://github.com/manta-network/manta-rs#21b6fd26020dd692b53c78072cf973210a5372f4"
 dependencies = [
  "derivative",
- "manta-util",
+ "manta-util 0.4.0 (git+https://github.com/manta-network/manta-rs)",
  "rand_core 0.6.3",
+]
+
+[[package]]
+name = "manta-pay"
+version = "0.4.0"
+source = "git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync#5878fc047946f38067c0160b99649af374f4365c"
+dependencies = [
+ "aes-gcm 0.9.4",
+ "ark-bls12-381",
+ "ark-ec",
+ "ark-ed-on-bls12-381",
+ "ark-ff",
+ "ark-groth16",
+ "ark-r1cs-std",
+ "ark-relations",
+ "ark-serialize",
+ "ark-snark",
+ "ark-std",
+ "bip32",
+ "blake2 0.10.4",
+ "bs58",
+ "derivative",
+ "manta-accounting 0.4.0 (git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync)",
+ "manta-crypto 0.4.0 (git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync)",
+ "manta-util 0.4.0 (git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync)",
+ "rand_chacha 0.3.1",
 ]
 
 [[package]]
@@ -5145,13 +5192,12 @@ dependencies = [
  "ark-std",
  "bip32",
  "blake2 0.10.4",
- "bs58",
  "clap 3.1.18",
  "derivative",
  "indexmap",
- "manta-accounting",
- "manta-crypto",
- "manta-util",
+ "manta-accounting 0.4.0 (git+https://github.com/manta-network/manta-rs)",
+ "manta-crypto 0.4.0 (git+https://github.com/manta-network/manta-rs)",
+ "manta-util 0.4.0 (git+https://github.com/manta-network/manta-rs)",
  "parity-scale-codec",
  "parking_lot 0.12.0",
  "rand_chacha 0.3.1",
@@ -5169,7 +5215,7 @@ dependencies = [
  "frame-support",
  "frame-system",
  "log",
- "manta-accounting",
+ "manta-accounting 0.4.0 (git+https://github.com/manta-network/manta-rs)",
  "parity-scale-codec",
  "scale-info",
  "smallvec",
@@ -5259,7 +5305,7 @@ dependencies = [
 [[package]]
 name = "manta-signer"
 version = "0.6.0"
-source = "git+https://github.com/manta-network/manta-signer?branch=manta-rs-integration#ae0954db1f5da510e53d51aad4e30bd9bbd868de"
+source = "git+https://github.com/manta-network/manta-signer?branch=manta-rs-integration#1903777171346af82f567ffa73c407ebb6b85689"
 dependencies = [
  "argon2",
  "chrono",
@@ -5267,11 +5313,11 @@ dependencies = [
  "dirs-next",
  "futures 0.3.21",
  "http-types",
- "manta-accounting",
- "manta-crypto",
- "manta-pay",
+ "manta-accounting 0.4.0 (git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync)",
+ "manta-crypto 0.4.0 (git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync)",
+ "manta-pay 0.4.0 (git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync)",
  "manta-sdk",
- "manta-util",
+ "manta-util 0.4.0 (git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync)",
  "parking_lot 0.12.0",
  "password-hash",
  "secrecy",
@@ -5284,11 +5330,16 @@ dependencies = [
 [[package]]
 name = "manta-util"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/manta-rs#21b6fd26020dd692b53c78072cf973210a5372f4"
+source = "git+https://github.com/manta-network/manta-rs?branch=feat/improve-sync#5878fc047946f38067c0160b99649af374f4365c"
 dependencies = [
  "serde",
  "serde_with",
 ]
+
+[[package]]
+name = "manta-util"
+version = "0.4.0"
+source = "git+https://github.com/manta-network/manta-rs#21b6fd26020dd692b53c78072cf973210a5372f4"
 
 [[package]]
 name = "maplit"
@@ -6343,12 +6394,12 @@ dependencies = [
  "frame-benchmarking",
  "frame-support",
  "frame-system",
- "manta-accounting",
- "manta-crypto",
- "manta-pay",
+ "manta-accounting 0.4.0 (git+https://github.com/manta-network/manta-rs)",
+ "manta-crypto 0.4.0 (git+https://github.com/manta-network/manta-rs)",
+ "manta-pay 0.4.0 (git+https://github.com/manta-network/manta-rs)",
  "manta-primitives",
  "manta-sdk",
- "manta-util",
+ "manta-util 0.4.0 (git+https://github.com/manta-network/manta-rs)",
  "parity-scale-codec",
  "scale-info",
  "sp-runtime",
@@ -8876,7 +8927,7 @@ dependencies = [
  "frame-support",
  "frame-system",
  "log",
- "manta-accounting",
+ "manta-accounting 0.4.0 (git+https://github.com/manta-network/manta-rs)",
  "parity-scale-codec",
  "scale-info",
  "smallvec",
