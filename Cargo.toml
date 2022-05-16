@@ -35,7 +35,7 @@ manta = { git = "https://github.com/manta-network/Manta", default-features = fal
 manta-crypto = { git = "https://github.com/manta-network/manta-rs", default-features = false, features = ["getrandom"] }
 manta-pay = { git = "https://github.com/manta-network/manta-rs", default-features = false, features = ["clap", "groth16", "simulation"] }
 manta-sdk = { git = "https://github.com/manta-network/sdk", default-features = false }
-manta-signer = { git = "https://github.com/manta-network/manta-signer", branch = "manta-rs-integration", default-features = false, features = ["log"] }
+manta-signer = { git = "https://github.com/manta-network/manta-signer", branch = "manta-rs-integration", default-features = false, features = ["unsafe-disable-cors"] }
 manta-util = { git = "https://github.com/manta-network/manta-rs", default-features = false }
 rpassword = { version = "6.0.1", default-features = false }
 tempfile = { version = "3.3.0", default-features = false }
