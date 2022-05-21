@@ -1110,7 +1110,7 @@ checksum = "c1db59621ec70f09c5e9b597b220c7a2b43611f4710dc03ceb8748637775692c"
 [[package]]
 name = "calamari-runtime"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "calamari-vesting",
  "cumulus-pallet-aura-ext",
@@ -1181,7 +1181,7 @@ dependencies = [
 [[package]]
 name = "calamari-vesting"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -2473,7 +2473,7 @@ dependencies = [
 [[package]]
 name = "dolphin-runtime"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "cumulus-pallet-aura-ext",
  "cumulus-pallet-dmp-queue",
@@ -3568,9 +3568,9 @@ dependencies = [
 
 [[package]]
 name = "http-body"
-version = "0.4.4"
+version = "0.4.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1ff4f84919677303da5f147645dbea6b1881f368d03ac84e1dc09031ebd7b2c6"
+checksum = "d5f38f16d184e36f2408a55281cd658ecbd3ca05cce6d6510a176eca393e26d1"
 dependencies = [
  "bytes 1.1.0",
  "http",
@@ -4986,11 +4986,12 @@ dependencies = [
 [[package]]
 name = "manta"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "async-trait",
  "calamari-runtime",
  "cfg-if 1.0.0",
+ "clap 3.1.18",
  "cumulus-client-cli",
  "cumulus-client-consensus-aura",
  "cumulus-client-consensus-common",
@@ -5056,7 +5057,7 @@ dependencies = [
 [[package]]
 name = "manta-accounting"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/manta-rs#358f6e31cef7449c9f5e2d391247f8282bdd2d85"
+source = "git+https://github.com/manta-network/manta-rs#d21b0afa6954f5f39e559ea2339f5a31f940008a"
 dependencies = [
  "bitflags",
  "cocoon",
@@ -5098,7 +5099,7 @@ dependencies = [
 [[package]]
 name = "manta-collator-selection"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -5119,7 +5120,7 @@ dependencies = [
 [[package]]
 name = "manta-crypto"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/manta-rs#358f6e31cef7449c9f5e2d391247f8282bdd2d85"
+source = "git+https://github.com/manta-network/manta-rs#d21b0afa6954f5f39e559ea2339f5a31f940008a"
 dependencies = [
  "derivative",
  "manta-util",
@@ -5130,7 +5131,7 @@ dependencies = [
 [[package]]
 name = "manta-pay"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/manta-rs#358f6e31cef7449c9f5e2d391247f8282bdd2d85"
+source = "git+https://github.com/manta-network/manta-rs#d21b0afa6954f5f39e559ea2339f5a31f940008a"
 dependencies = [
  "aes-gcm 0.9.4",
  "ark-bls12-381",
@@ -5164,7 +5165,7 @@ dependencies = [
 [[package]]
 name = "manta-primitives"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -5186,7 +5187,7 @@ dependencies = [
 [[package]]
 name = "manta-runtime"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "cumulus-pallet-aura-ext",
  "cumulus-pallet-dmp-queue",
@@ -5259,7 +5260,7 @@ dependencies = [
 [[package]]
 name = "manta-signer"
 version = "0.6.0"
-source = "git+https://github.com/manta-network/manta-signer?branch=manta-rs-integration#823aa0fd3c61744884c8a6fb9fec68590fe7224b"
+source = "git+https://github.com/manta-network/manta-signer#372fc2579ce763c80a9a76bcc4a55268f8793876"
 dependencies = [
  "argon2",
  "async-std",
@@ -5285,7 +5286,7 @@ dependencies = [
 [[package]]
 name = "manta-util"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/manta-rs#358f6e31cef7449c9f5e2d391247f8282bdd2d85"
+source = "git+https://github.com/manta-network/manta-rs#d21b0afa6954f5f39e559ea2339f5a31f940008a"
 dependencies = [
  "serde",
  "serde_with",
@@ -5972,7 +5973,7 @@ dependencies = [
 [[package]]
 name = "pallet-asset-manager"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -6339,7 +6340,7 @@ dependencies = [
 [[package]]
 name = "pallet-manta-pay"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -6718,7 +6719,7 @@ dependencies = [
 [[package]]
 name = "pallet-tx-pause"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -8866,7 +8867,7 @@ dependencies = [
 [[package]]
 name = "runtime-common"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#005de0d47cdfd6c872267725637b56c883e8f1fa"
+source = "git+https://github.com/manta-network/Manta?branch=feat/export-node-cli#b1db2f2bb3309baffab9d61ce12aee6a2e9a10cf"
 dependencies = [
  "frame-support",
  "frame-system",
