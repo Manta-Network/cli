@@ -31,7 +31,7 @@ clap = { version = "3.1.18", default-features = false, features = ["color", "der
 clap-verbosity-flag = { version = "1.0.0", default-features = false }
 derivative = { version = "2.2.0", default-features = false, features = ["use_core"] }
 derive_more = { version = "0.99.17", default-features = false, features = ["display", "error", "from_str"] }
-manta = { git = "https://github.com/manta-network/Manta", branch = "feat/export-node-cli", default-features = false }
+manta = { git = "https://github.com/manta-network/Manta", branch = "jamie/v0.9.18", default-features = false }
 manta-crypto = { git = "https://github.com/manta-network/manta-rs", default-features = false, features = ["getrandom"] }
 manta-pay = { git = "https://github.com/manta-network/manta-rs", default-features = false, features = ["clap", "groth16", "simulation"] }
 manta-sdk = { git = "https://github.com/manta-network/sdk", default-features = false }
