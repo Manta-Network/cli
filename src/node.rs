@@ -40,6 +40,13 @@ pub enum Command {
         #[clap(arg_enum, long)]
         runtime: Runtime,
     },
+
+    ///
+    Run {
+        ///
+        #[clap(flatten)]
+        cli: manta::cli::Cli,
+    },
 }
 
 /// Node CLI
@@ -62,6 +69,7 @@ impl Arguments {
                 Runtime::Calamari => todo!(),
                 Runtime::Dolphin => todo!(),
             },
+            Command::Run { cli } => manta::command::run_with(cli),
         }
     }
 }

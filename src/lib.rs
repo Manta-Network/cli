@@ -24,6 +24,15 @@ extern crate alloc;
 extern crate derive_more;
 
 pub mod cli;
+
+#[cfg(feature = "node")]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "node")))]
 pub mod node;
+
+#[cfg(feature = "signer")]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "signer")))]
 pub mod signer;
+
+#[cfg(feature = "sim")]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "sim")))]
 pub mod sim;

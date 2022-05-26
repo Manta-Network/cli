@@ -99,12 +99,14 @@ pub struct Arguments {
 
 /// Defines commands for the [`run`] function.
 macro_rules! define_commands {
-    ($(($doc:expr, $name:ident, $path:tt)),*$(,)?) => {
+    ($(($doc:expr, $feature:expr, $name:ident, $path:tt)),*$(,)?) => {
         /// Manta CLI Sub-Command
         #[derive(Clone, Debug, Subcommand)]
         pub enum Command {
             $(
                 #[doc = $doc]
+                #[cfg(feature = $feature)]
+                #[cfg_attr(doc_cfg, doc(cfg(feature = $feature)))]
                 $name(crate::$path::Arguments)
             ),*
         }
@@ -113,7 +115,10 @@ macro_rules! define_commands {
         #[inline]
         pub fn run_with(args: Arguments) -> Result {
             match args.command {
-                $(Command::$name(command) => command.run(args.verbose)),*
+                $(
+                    #[cfg(feature = $feature)]
+                    Command::$name(command) => command.run(args.verbose)
+                ),*
             }
         }
 
@@ -121,9 +126,9 @@ macro_rules! define_commands {
 }
 
 define_commands! {
-    ("Run a Manta Node", Node, node),
-    ("Run a Manta Signer", Signer, signer),
-    ("Run MantaPay Simulation", Sim, sim),
+    ("Run a Manta Node", "node", Node, node),
+    ("Run a Manta Signer", "signer", Signer, signer),
+    ("Run MantaPay Simulation", "simulation", Sim, sim),
 }
 
 /// Runs the CLI on the arguments provided by the command line.
