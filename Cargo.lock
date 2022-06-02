@@ -456,17 +456,16 @@ dependencies = [
 
 [[package]]
 name = "async-global-executor"
-version = "2.0.4"
+version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c290043c9a95b05d45e952fb6383c67bcb61471f60cfa21e890dba6654234f43"
+checksum = "fd8b508d585e01084059b60f06ade4cb7415cd2e4084b71dd1cb44e7d3fb9880"
 dependencies = [
  "async-channel",
  "async-executor",
  "async-io",
- "async-mutex",
+ "async-lock",
  "blocking",
  "futures-lite",
- "num_cpus",
  "once_cell",
  "tokio",
 ]
@@ -511,15 +510,6 @@ name = "async-lock"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e97a171d191782fba31bb902b14ad94e24a68145032b7eedf871ab0bc0d077b6"
-dependencies = [
- "event-listener",
-]
-
-[[package]]
-name = "async-mutex"
-version = "1.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "479db852db25d9dbf6204e6cb6253698f175c15726470f78af0d918e99d6156e"
 dependencies = [
  "event-listener",
 ]
@@ -749,9 +739,9 @@ checksum = "8a32fd6af2b5827bce66c29053ba0e7c42b9dcab01835835058558c10851a46b"
 
 [[package]]
 name = "beef"
-version = "0.5.1"
+version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bed554bd50246729a1ec158d08aa3235d1b69d94ad120ebe187e28894787e736"
+checksum = "3a8241f3ebb85c056b509d4327ad0358fbbba6ffb340bf388f26350aeda225b1"
 dependencies = [
  "serde",
 ]
@@ -767,7 +757,7 @@ dependencies = [
  "hex",
  "log",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sc-chain-spec",
  "sc-client-api",
  "sc-keystore",
@@ -800,7 +790,7 @@ dependencies = [
  "jsonrpc-pubsub",
  "log",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sc-rpc",
  "sc-utils",
  "serde",
@@ -1077,9 +1067,9 @@ dependencies = [
 
 [[package]]
 name = "bumpalo"
-version = "3.9.1"
+version = "3.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a4a45a46ab1f2412e53d3a0ade76ffad2025804294569aae387231a0cd6e0899"
+checksum = "37ccbd214614c6783386c1af30caf03192f17891059cecc394b4fb119e363de3"
 
 [[package]]
 name = "byte-slice-cast"
@@ -1135,7 +1125,7 @@ checksum = "c1db59621ec70f09c5e9b597b220c7a2b43611f4710dc03ceb8748637775692c"
 [[package]]
 name = "calamari-runtime"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 dependencies = [
  "calamari-vesting",
  "cumulus-pallet-aura-ext",
@@ -1168,7 +1158,6 @@ dependencies = [
  "pallet-preimage",
  "pallet-scheduler",
  "pallet-session",
- "pallet-sudo",
  "pallet-timestamp",
  "pallet-transaction-payment",
  "pallet-transaction-payment-rpc-runtime-api",
@@ -1207,7 +1196,7 @@ dependencies = [
 [[package]]
 name = "calamari-vesting"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -1387,9 +1376,9 @@ dependencies = [
 
 [[package]]
 name = "clang-sys"
-version = "1.3.2"
+version = "1.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf6b561dcf059c85bbe388e0a7b0a1469acb3934cc0cfa148613a830629e3049"
+checksum = "5a050e2153c5be08febd6734e29298e844fdb0fa21aeddd63b4eb7baa106c69b"
 dependencies = [
  "glob",
  "libc",
@@ -1851,7 +1840,7 @@ dependencies = [
  "cumulus-relay-chain-interface",
  "futures 0.3.21",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "polkadot-node-primitives",
  "polkadot-node-subsystem",
  "polkadot-overseer",
@@ -1924,7 +1913,7 @@ dependencies = [
  "cumulus-primitives-core",
  "cumulus-relay-chain-interface",
  "futures 0.3.21",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sc-client-api",
  "sc-consensus",
  "sp-api",
@@ -1949,7 +1938,7 @@ dependencies = [
  "futures 0.3.21",
  "futures-timer",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "polkadot-node-primitives",
  "polkadot-parachain",
  "polkadot-primitives",
@@ -1999,7 +1988,7 @@ dependencies = [
  "cumulus-primitives-core",
  "cumulus-relay-chain-interface",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "polkadot-overseer",
  "polkadot-primitives",
  "sc-chain-spec",
@@ -2208,7 +2197,7 @@ dependencies = [
  "cumulus-relay-chain-interface",
  "futures 0.3.21",
  "futures-timer",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "polkadot-client",
  "polkadot-service",
  "sc-client-api",
@@ -2237,7 +2226,7 @@ dependencies = [
  "futures 0.3.21",
  "jsonrpsee-core 0.9.0",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "polkadot-overseer",
  "polkadot-service",
  "sc-client-api",
@@ -2263,7 +2252,7 @@ dependencies = [
  "futures-timer",
  "jsonrpsee 0.9.0",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "polkadot-service",
  "sc-client-api",
  "sc-rpc-api",
@@ -2508,7 +2497,7 @@ dependencies = [
 [[package]]
 name = "dolphin-runtime"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 dependencies = [
  "cumulus-pallet-aura-ext",
  "cumulus-pallet-dmp-queue",
@@ -2909,13 +2898,11 @@ checksum = "279fb028e20b3c4c320317955b77c5e0c9701f05a1d309905d6fc702cdc5053e"
 
 [[package]]
 name = "flate2"
-version = "1.0.23"
+version = "1.0.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b39522e96686d38f4bc984b9198e3a0613264abaebaff2c5c918bfa6b6da09af"
+checksum = "f82b0f4c27ad9f8bfd1f3208d882da2b09c301bc1c828fd3a00d0216d2fbbff6"
 dependencies = [
- "cfg-if 1.0.0",
  "crc32fast",
- "libc",
  "libz-sys",
  "miniz_oxide",
 ]
@@ -3711,9 +3698,9 @@ checksum = "9a3a5bfb195931eeb336b2a7b4d761daec841b97f947d34394601737a7bba5e4"
 
 [[package]]
 name = "hyper"
-version = "0.14.18"
+version = "0.14.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b26ae0a80afebe130861d90abf98e3814a4f28a4c6ffeb5ab8ebb2be311e0ef2"
+checksum = "42dc3c131584288d375f2d07f822b0cb012d8c6fb899a5b9fdb3cb7eb9b6004f"
 dependencies = [
  "bytes 1.1.0",
  "futures-channel",
@@ -3862,9 +3849,9 @@ dependencies = [
 
 [[package]]
 name = "indexmap"
-version = "1.8.1"
+version = "1.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0f647032dfaa1f8b6dc29bd3edb7bbef4861b8b8007ebb118d6db284fd59f6ee"
+checksum = "e6012d540c5baa3589337a98ce73408de9b5a25ec9fc2c6fd6be8f0d39e0ca5a"
 dependencies = [
  "autocfg",
  "hashbrown 0.11.2",
@@ -4524,7 +4511,7 @@ checksum = "ece7e668abd21387aeb6628130a6f4c802787f014fa46bc83221448322250357"
 dependencies = [
  "kvdb",
  "parity-util-mem",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
 ]
 
 [[package]]
@@ -4539,7 +4526,7 @@ dependencies = [
  "num_cpus",
  "owning_ref",
  "parity-util-mem",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "regex",
  "rocksdb",
  "smallvec",
@@ -5127,9 +5114,9 @@ dependencies = [
 
 [[package]]
 name = "libz-sys"
-version = "1.1.6"
+version = "1.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "92e7e15d7610cce1d9752e137625f14e61a28cd45929b6e12e47b50fe154ee2e"
+checksum = "9702761c3935f8cc2f101793272e202c72b99da8f4224a19ddcf1279a6450bbf"
 dependencies = [
  "cc",
  "pkg-config",
@@ -5246,7 +5233,7 @@ dependencies = [
 [[package]]
 name = "manta"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 dependencies = [
  "async-trait",
  "calamari-runtime",
@@ -5327,7 +5314,7 @@ dependencies = [
  "indexmap",
  "manta-crypto",
  "manta-util",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "rand_chacha 0.3.1",
  "statrs",
 ]
@@ -5358,7 +5345,7 @@ dependencies = [
 [[package]]
 name = "manta-collator-selection"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -5413,7 +5400,7 @@ dependencies = [
  "manta-crypto",
  "manta-util",
  "parity-scale-codec 2.3.1",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "rand_chacha 0.3.1",
  "rayon",
  "scale-info 1.0.0",
@@ -5424,7 +5411,7 @@ dependencies = [
 [[package]]
 name = "manta-primitives"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -5446,7 +5433,7 @@ dependencies = [
 [[package]]
 name = "manta-runtime"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 dependencies = [
  "cumulus-pallet-aura-ext",
  "cumulus-pallet-dmp-queue",
@@ -5533,7 +5520,7 @@ dependencies = [
  "manta-pay",
  "manta-sdk",
  "manta-util",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "password-hash",
  "secrecy",
  "serde_json",
@@ -5689,9 +5676,9 @@ checksum = "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
 
 [[package]]
 name = "miniz_oxide"
-version = "0.5.1"
+version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d2b29bd4bc3f33391105ebee3589c19197c4271e3e5a9ec9bfe8127eeff8f082"
+checksum = "6f5c75688da582b8ffc1f1799e9db273f32133c49e048f614d22ec3256773ccc"
 dependencies = [
  "adler",
 ]
@@ -6128,9 +6115,9 @@ checksum = "ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf"
 
 [[package]]
 name = "openssl-sys"
-version = "0.9.73"
+version = "0.9.74"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9d5fd19fb3e0a8191c1e34935718976a3e70c112ab9a24af6d7cadccd9d90bc0"
+checksum = "835363342df5fba8354c5b453325b110ffd54044e588c539cf2f20a8014e4cb1"
 dependencies = [
  "autocfg",
  "cc",
@@ -6232,7 +6219,7 @@ dependencies = [
 [[package]]
 name = "pallet-asset-manager"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -6604,7 +6591,7 @@ dependencies = [
 [[package]]
 name = "pallet-manta-pay"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -6983,7 +6970,7 @@ dependencies = [
 [[package]]
 name = "pallet-tx-pause"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -7152,7 +7139,7 @@ dependencies = [
  "hashbrown 0.12.1",
  "impl-trait-for-tuples",
  "parity-util-mem-derive",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "primitive-types",
  "smallvec",
  "winapi 0.3.9",
@@ -7221,9 +7208,9 @@ dependencies = [
 
 [[package]]
 name = "parking_lot"
-version = "0.12.0"
+version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "87f5ec2493a61ac0506c0f4199f99070cbe83857b0337006a30f3e6719b8ef58"
+checksum = "3742b2c103b9f06bc9fff0a37ff4912935851bee6d36f3c02bcc755bcfec228f"
 dependencies = [
  "lock_api",
  "parking_lot_core 0.9.3",
@@ -7365,9 +7352,9 @@ dependencies = [
 
 [[package]]
 name = "petgraph"
-version = "0.6.0"
+version = "0.6.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4a13a2fa9d0b63e5f22328828741e523766fff0ee9e779316902290dff3f824f"
+checksum = "e6d5014253a1331579ce62aa67443b4a658c5e7dd03d4bc6d302b94474888143"
 dependencies = [
  "fixedbitset",
  "indexmap",
@@ -7677,7 +7664,7 @@ dependencies = [
  "async-trait",
  "futures 0.3.21",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "polkadot-node-network-protocol",
  "polkadot-node-subsystem",
  "polkadot-node-subsystem-util",
@@ -7964,7 +7951,7 @@ dependencies = [
  "log",
  "mick-jaeger",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "polkadot-node-primitives",
  "polkadot-primitives",
  "sc-network",
@@ -8102,7 +8089,7 @@ dependencies = [
  "futures-timer",
  "lru 0.7.6",
  "parity-util-mem",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "polkadot-node-metrics",
  "polkadot-node-network-protocol",
  "polkadot-node-primitives",
@@ -8687,7 +8674,7 @@ dependencies = [
  "fnv",
  "lazy_static",
  "memchr",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "thiserror",
 ]
 
@@ -9134,7 +9121,7 @@ dependencies = [
 [[package]]
 name = "runtime-common"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#40534eaf0d2fefbea4e8904e4e0d3a73decee5f4"
+source = "git+https://github.com/manta-network/Manta?branch=jamie/v0.9.18#9148200eeca0a43ebae50c95f2a75793c6deaae8"
 
 [[package]]
 name = "rustc-demangle"
@@ -9447,7 +9434,7 @@ dependencies = [
  "hash-db",
  "log",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sc-executor",
  "sc-transaction-pool-api",
  "sc-utils",
@@ -9478,7 +9465,7 @@ dependencies = [
  "log",
  "parity-db",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sc-client-api",
  "sc-state-db",
  "sp-arithmetic",
@@ -9500,7 +9487,7 @@ dependencies = [
  "futures-timer",
  "libp2p",
  "log",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sc-client-api",
  "sc-utils",
  "serde",
@@ -9557,7 +9544,7 @@ dependencies = [
  "num-rational 0.2.4",
  "num-traits",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "rand 0.7.3",
  "retain_mut",
  "sc-client-api",
@@ -9667,7 +9654,7 @@ dependencies = [
  "lazy_static",
  "lru 0.6.6",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sc-executor-common",
  "sc-executor-wasmi",
  "sc-executor-wasmtime",
@@ -9752,7 +9739,7 @@ dependencies = [
  "hex",
  "log",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "rand 0.8.5",
  "sc-block-builder",
  "sc-chain-spec",
@@ -9825,7 +9812,7 @@ source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v0.9.1
 dependencies = [
  "async-trait",
  "hex",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "serde_json",
  "sp-application-crypto",
  "sp-core",
@@ -9856,7 +9843,7 @@ dependencies = [
  "log",
  "lru 0.7.6",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "pin-project 1.0.10",
  "prost",
  "prost-build",
@@ -9914,7 +9901,7 @@ dependencies = [
  "num_cpus",
  "once_cell",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "rand 0.7.3",
  "sc-client-api",
  "sc-network",
@@ -9960,7 +9947,7 @@ dependencies = [
  "jsonrpc-pubsub",
  "log",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sc-block-builder",
  "sc-chain-spec",
  "sc-client-api",
@@ -9992,7 +9979,7 @@ dependencies = [
  "jsonrpc-pubsub",
  "log",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sc-chain-spec",
  "sc-transaction-pool-api",
  "serde",
@@ -10038,7 +10025,7 @@ dependencies = [
  "log",
  "parity-scale-codec 3.1.2",
  "parity-util-mem",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "pin-project 1.0.10",
  "rand 0.7.3",
  "sc-block-builder",
@@ -10095,7 +10082,7 @@ dependencies = [
  "parity-scale-codec 3.1.2",
  "parity-util-mem",
  "parity-util-mem-derive",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sc-client-api",
  "sp-core",
 ]
@@ -10130,7 +10117,7 @@ dependencies = [
  "futures 0.3.21",
  "libp2p",
  "log",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "pin-project 1.0.10",
  "rand 0.7.3",
  "serde",
@@ -10151,7 +10138,7 @@ dependencies = [
  "libc",
  "log",
  "once_cell",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "regex",
  "rustc-hash",
  "sc-client-api",
@@ -10192,7 +10179,7 @@ dependencies = [
  "log",
  "parity-scale-codec 3.1.2",
  "parity-util-mem",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "retain_mut",
  "sc-client-api",
  "sc-transaction-pool-api",
@@ -10230,7 +10217,7 @@ dependencies = [
  "futures-timer",
  "lazy_static",
  "log",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "prometheus",
 ]
 
@@ -10523,11 +10510,10 @@ dependencies = [
 
 [[package]]
 name = "serde_with"
-version = "1.13.0"
+version = "1.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b827f2113224f3f19a665136f006709194bdfdcb1fdc1e4b2b5cbac8e0cced54"
+checksum = "678b5a069e50bf00ecd22d0cd8ddf7c236f68581b03db652061ed5eb13a312ff"
 dependencies = [
- "rustversion",
  "serde",
  "serde_with_macros",
 ]
@@ -10904,7 +10890,7 @@ dependencies = [
  "log",
  "lru 0.7.6",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "sp-api",
  "sp-consensus",
  "sp-database",
@@ -11022,7 +11008,7 @@ dependencies = [
  "num-traits",
  "parity-scale-codec 3.1.2",
  "parity-util-mem",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "primitive-types",
  "rand 0.7.3",
  "regex",
@@ -11076,7 +11062,7 @@ version = "4.0.0-dev"
 source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v0.9.18#fc3fd073d3a0acf9933c3994b660ebd7b5833f65"
 dependencies = [
  "kvdb",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
 ]
 
 [[package]]
@@ -11142,7 +11128,7 @@ dependencies = [
  "libsecp256k1",
  "log",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "secp256k1",
  "sp-core",
  "sp-externalities",
@@ -11177,7 +11163,7 @@ dependencies = [
  "futures 0.3.21",
  "merlin",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "schnorrkel",
  "serde",
  "sp-core",
@@ -11344,7 +11330,7 @@ dependencies = [
  "log",
  "num-traits",
  "parity-scale-codec 3.1.2",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "rand 0.7.3",
  "smallvec",
  "sp-core",
@@ -11517,9 +11503,9 @@ dependencies = [
 
 [[package]]
 name = "ss58-registry"
-version = "1.20.0"
+version = "1.22.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e1e7c268f5610088463d23188fc9e764cda491784360e5e4ea3a8ce1e0e2ac9"
+checksum = "5d804c8d48aeab838be31570866fce1130d275b563d49af08b4927a0bd561e7c"
 dependencies = [
  "Inflector",
  "num-format",
@@ -12028,7 +12014,7 @@ dependencies = [
  "mio 0.8.3",
  "num_cpus",
  "once_cell",
- "parking_lot 0.12.0",
+ "parking_lot 0.12.1",
  "pin-project-lite 0.2.9",
  "signal-hook-registry",
  "socket2 0.4.4",
