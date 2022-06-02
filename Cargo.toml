@@ -43,7 +43,7 @@ derivative = { version = "2.2.0", default-features = false, features = ["use_cor
 derive_more = { version = "0.99.17", default-features = false, features = ["display", "error", "from_str"] }
 manta = { git = "https://github.com/manta-network/Manta", branch = "jamie/v0.9.18", optional = true, default-features = false }
 manta-crypto = { git = "https://github.com/manta-network/manta-rs", optional = true, default-features = false, features = ["getrandom"] }
-manta-pay = { git = "https://github.com/manta-network/manta-rs", optional = true, default-features = false, features = ["clap", "groth16", "simulation"] }
+manta-pay = { git = "https://github.com/manta-network/manta-rs", optional = true, default-features = false, features = ["clap", "groth16", "scale-std", "simulation"] }
 manta-sdk = { git = "https://github.com/manta-network/sdk", optional = true, default-features = false }
 manta-signer = { git = "https://github.com/manta-network/manta-signer", optional = true, default-features = false, features = ["unsafe-disable-cors"] }
 manta-util = { git = "https://github.com/manta-network/manta-rs", optional = true, default-features = false }
