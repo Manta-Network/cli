@@ -41,7 +41,7 @@ clap = { version = "3.1.18", default-features = false, features = ["color", "der
 clap-verbosity-flag = { version = "1.0.0", default-features = false }
 derivative = { version = "2.2.0", default-features = false, features = ["use_core"] }
 derive_more = { version = "0.99.17", default-features = false, features = ["display", "error", "from_str"] }
-manta = { git = "https://github.com/manta-network/Manta", branch = "jamie/v0.9.18", optional = true, default-features = false }
+manta = { git = "https://github.com/manta-network/Manta", optional = true, default-features = false }
 manta-crypto = { git = "https://github.com/manta-network/manta-rs", optional = true, default-features = false, features = ["getrandom"] }
 manta-pay = { git = "https://github.com/manta-network/manta-rs", optional = true, default-features = false, features = ["clap", "groth16", "scale-std", "simulation"] }
 manta-sdk = { git = "https://github.com/manta-network/sdk", optional = true, default-features = false }
@@ -49,7 +49,7 @@ manta-signer = { git = "https://github.com/manta-network/manta-signer", optional
 manta-util = { git = "https://github.com/manta-network/manta-rs", optional = true, default-features = false }
 rpassword = { version = "6.0.1", optional = true, default-features = false }
 tempfile = { version = "3.3.0", default-features = false }
-tokio = { version = "1.18.2", default-features = false }
+tokio = { version = "1.19.1", default-features = false }
 
 [build-dependencies]
 clap_mangen = { version = "0.1.6", default-features = false }
