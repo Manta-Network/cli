@@ -36,14 +36,7 @@ pub enum Runtime {
 pub enum Command {
     /// Start a node instance
     Start {
-        /// Specify the runtime to use for this node
-        #[clap(arg_enum, long)]
-        runtime: Runtime,
-    },
-
-    ///
-    Run {
-        ///
+        /// Manta Node CLI Arguments
         #[clap(flatten)]
         cli: manta::cli::Cli,
     },
@@ -64,12 +57,7 @@ impl Arguments {
         // FIXME: Use the verbosity flag.
         let _ = verbose;
         match self.command {
-            Command::Start { runtime } => match runtime {
-                Runtime::Manta => todo!(),
-                Runtime::Calamari => todo!(),
-                Runtime::Dolphin => todo!(),
-            },
-            Command::Run { cli } => manta::command::run_with(cli),
+            Command::Start { cli } => manta::command::run_with(cli),
         }
     }
 }
