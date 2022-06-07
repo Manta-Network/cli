@@ -1125,7 +1125,7 @@ checksum = "c1db59621ec70f09c5e9b597b220c7a2b43611f4710dc03ceb8748637775692c"
 [[package]]
 name = "calamari-runtime"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 dependencies = [
  "calamari-vesting",
  "cumulus-pallet-aura-ext",
@@ -1196,7 +1196,7 @@ dependencies = [
 [[package]]
 name = "calamari-vesting"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -2497,7 +2497,7 @@ dependencies = [
 [[package]]
 name = "dolphin-runtime"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 dependencies = [
  "cumulus-pallet-aura-ext",
  "cumulus-pallet-dmp-queue",
@@ -3624,9 +3624,9 @@ dependencies = [
 
 [[package]]
 name = "http"
-version = "0.2.7"
+version = "0.2.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ff8670570af52249509a86f5e3e18a08c60b177071826898fde8997cf5f6bfbb"
+checksum = "75f43d41e26995c17e71ee126451dd3941010b0514a81a9d11f3b341debc2399"
 dependencies = [
  "bytes 1.1.0",
  "fnv",
@@ -5233,7 +5233,7 @@ dependencies = [
 [[package]]
 name = "manta"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 dependencies = [
  "async-trait",
  "calamari-runtime",
@@ -5304,7 +5304,7 @@ dependencies = [
 [[package]]
 name = "manta-accounting"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/manta-rs#e779189021bfe91fbc7060c1ae97e2855734535c"
+source = "git+https://github.com/manta-network/manta-rs#ebf935276c4bb172d23d6748e0b9d11a48d409b7"
 dependencies = [
  "bitflags",
  "cocoon",
@@ -5345,7 +5345,7 @@ dependencies = [
 [[package]]
 name = "manta-collator-selection"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -5366,7 +5366,7 @@ dependencies = [
 [[package]]
 name = "manta-crypto"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/manta-rs#e779189021bfe91fbc7060c1ae97e2855734535c"
+source = "git+https://github.com/manta-network/manta-rs#ebf935276c4bb172d23d6748e0b9d11a48d409b7"
 dependencies = [
  "derivative",
  "manta-util",
@@ -5377,7 +5377,7 @@ dependencies = [
 [[package]]
 name = "manta-pay"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/manta-rs#e779189021bfe91fbc7060c1ae97e2855734535c"
+source = "git+https://github.com/manta-network/manta-rs#ebf935276c4bb172d23d6748e0b9d11a48d409b7"
 dependencies = [
  "aes-gcm 0.9.4",
  "ark-bls12-381",
@@ -5411,7 +5411,7 @@ dependencies = [
 [[package]]
 name = "manta-primitives"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -5433,7 +5433,7 @@ dependencies = [
 [[package]]
 name = "manta-runtime"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 dependencies = [
  "cumulus-pallet-aura-ext",
  "cumulus-pallet-dmp-queue",
@@ -5532,7 +5532,7 @@ dependencies = [
 [[package]]
 name = "manta-util"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/manta-rs#e779189021bfe91fbc7060c1ae97e2855734535c"
+source = "git+https://github.com/manta-network/manta-rs#ebf935276c4bb172d23d6748e0b9d11a48d409b7"
 dependencies = [
  "serde",
  "serde_with",
@@ -6219,7 +6219,7 @@ dependencies = [
 [[package]]
 name = "pallet-asset-manager"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -6591,7 +6591,7 @@ dependencies = [
 [[package]]
 name = "pallet-manta-pay"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -6970,7 +6970,7 @@ dependencies = [
 [[package]]
 name = "pallet-tx-pause"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -9097,7 +9097,7 @@ dependencies = [
 [[package]]
 name = "runtime-common"
 version = "3.1.5"
-source = "git+https://github.com/manta-network/Manta#b4ab435eb4503983401614ec22b96ea7a652c0ac"
+source = "git+https://github.com/manta-network/Manta#7b421ba7cc6829b26a22603db8427228f30256fb"
 
 [[package]]
 name = "rustc-demangle"
@@ -11956,9 +11956,9 @@ checksum = "cda74da7e1a664f795bb1f8a87ec406fb89a02522cf6e50620d016add6dbbf5c"
 
 [[package]]
 name = "tokio"
-version = "1.19.1"
+version = "1.19.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "95eec79ea28c00a365f539f1961e9278fbcaf81c0ff6aaf0e93c181352446948"
+checksum = "c51a52ed6686dd62c320f9b89299e9dfb46f730c7a48e635c19f21d116cb1439"
 dependencies = [
  "bytes 1.1.0",
  "libc",
@@ -12087,11 +12087,11 @@ dependencies = [
 
 [[package]]
 name = "tracing-core"
-version = "0.1.26"
+version = "0.1.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f54c8ca710e81886d498c2fd3331b56c93aa248d49de2222ad2742247c60072f"
+checksum = "7709595b8878a4965ce5e87ebf880a7d39c9afc6837721b21a5a816a8117d921"
 dependencies = [
- "lazy_static",
+ "once_cell",
  "valuable",
 ]
 
