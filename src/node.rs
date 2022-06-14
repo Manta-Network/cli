@@ -16,7 +16,7 @@
 
 //! Node CLI
 
-use crate::cli::{ArgEnum, Parser, Result, Subcommand, Verbosity};
+use crate::cli::{ArgEnum, ErrorKind, Parser, ParserExt, Result, Subcommand, Verbosity};
 
 /// Runtime Kind
 #[derive(ArgEnum, Clone, Debug)]
@@ -32,7 +32,7 @@ pub enum Runtime {
 }
 
 /// Node Command
-#[derive(Clone, Debug, Subcommand)]
+#[derive(Debug, Subcommand)]
 pub enum Command {
     /// Start a node instance
     Start {
@@ -43,7 +43,7 @@ pub enum Command {
 }
 
 /// Node CLI
-#[derive(Clone, Debug, Parser)]
+#[derive(Debug, Parser)]
 pub struct Arguments {
     /// Runtime Command
     #[clap(subcommand)]
@@ -57,7 +57,11 @@ impl Arguments {
         // FIXME: Use the verbosity flag.
         let _ = verbose;
         match self.command {
-            Command::Start { cli } => manta::command::run_with(cli),
+            Command::Start { cli } => {
+                // FIXME: Expose the error API from the node so that we can give the most expressive
+                //        error here.
+                manta::command::run_with(cli).map_err(|e| Self::error(ErrorKind::Io, e))
+            }
         }
     }
 }

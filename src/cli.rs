@@ -85,7 +85,7 @@ pub trait ParserExt: Parser {
 impl<P> ParserExt for P where P: Parser {}
 
 /// Manta CLI
-#[derive(Clone, Debug, Parser)]
+#[derive(Debug, Parser)]
 #[clap(about, author, version, long_about = None, propagate_version = true)]
 pub struct Arguments {
     /// Command
@@ -101,7 +101,7 @@ pub struct Arguments {
 macro_rules! define_commands {
     ($(($doc:expr, $feature:expr, $name:ident, $path:tt)),*$(,)?) => {
         /// Manta CLI Sub-Command
-        #[derive(Clone, Debug, Subcommand)]
+        #[derive(Debug, Subcommand)]
         pub enum Command {
             $(
                 #[doc = $doc]
