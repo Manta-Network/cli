@@ -36,3 +36,16 @@ pub mod signer;
 #[cfg(feature = "sim")]
 #[cfg_attr(doc_cfg, doc(cfg(feature = "sim")))]
 pub mod sim;
+
+/// Runtime Kind
+#[derive(cli::ArgEnum, Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum Runtime {
+    /// Manta Runtime
+    Manta,
+
+    /// Calamari Runtime
+    Calamari,
+
+    /// Dolphin Runtime
+    Dolphin,
+}

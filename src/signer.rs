@@ -18,7 +18,7 @@
 
 use crate::{
     cli::{ErrorKind, Parser, ParserExt, Result, Subcommand, Verbosity},
-    node::Runtime,
+    Runtime,
 };
 use manta_crypto::rand::{CryptoRng, OsRng, RngCore, Sample};
 use manta_signer::{

@@ -16,20 +16,7 @@
 
 //! Node CLI
 
-use crate::cli::{ArgEnum, ErrorKind, Parser, ParserExt, Result, Subcommand, Verbosity};
-
-/// Runtime Kind
-#[derive(ArgEnum, Clone, Debug)]
-pub enum Runtime {
-    /// Manta Runtime
-    Manta,
-
-    /// Calamari Runtime
-    Calamari,
-
-    /// Dolphin Runtime
-    Dolphin,
-}
+use crate::cli::{ErrorKind, Parser, ParserExt, Result, Subcommand, Verbosity};
 
 /// Node Command
 #[derive(Debug, Subcommand)]

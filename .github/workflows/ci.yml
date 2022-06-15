@@ -19,7 +19,6 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
-          - windows-latest
         channel:
           - nightly
     runs-on: ${{ matrix.os }}
@@ -70,7 +69,6 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
-          - windows-latest
         channel:
           - nightly
     runs-on: ${{ matrix.os }}
