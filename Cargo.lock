@@ -5553,8 +5553,8 @@ dependencies = [
 
 [[package]]
 name = "manta-signer"
-version = "0.6.0"
-source = "git+https://github.com/manta-network/manta-signer#80cc030290be9d568a5c9b1cf1b2405fa53b7760"
+version = "0.7.0"
+source = "git+https://github.com/manta-network/manta-signer#b644cb62e5fa0b6add9361db7ab039c5feb277ec"
 dependencies = [
  "argon2",
  "async-std",

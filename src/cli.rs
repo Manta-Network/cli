@@ -101,6 +101,7 @@ pub struct Arguments {
 macro_rules! define_commands {
     ($(($doc:expr, $feature:expr, $name:ident, $path:tt)),*$(,)?) => {
         /// Manta CLI Sub-Command
+        #[allow(clippy::large_enum_variant)] // NOTE: This `enum` is only used once.
         #[derive(Debug, Subcommand)]
         pub enum Command {
             $(
