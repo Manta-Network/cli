@@ -1125,7 +1125,7 @@ checksum = "c1db59621ec70f09c5e9b597b220c7a2b43611f4710dc03ceb8748637775692c"
 [[package]]
 name = "calamari-runtime"
 version = "3.2.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 dependencies = [
  "calamari-vesting",
  "cumulus-pallet-aura-ext",
@@ -1196,7 +1196,7 @@ dependencies = [
 [[package]]
 name = "calamari-vesting"
 version = "3.2.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -2497,7 +2497,7 @@ dependencies = [
 [[package]]
 name = "dolphin-runtime"
 version = "3.2.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 dependencies = [
  "cumulus-pallet-aura-ext",
  "cumulus-pallet-dmp-queue",
@@ -5233,7 +5233,7 @@ dependencies = [
 [[package]]
 name = "manta"
 version = "3.2.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 dependencies = [
  "async-trait",
  "calamari-runtime",
@@ -5357,7 +5357,7 @@ dependencies = [
 [[package]]
 name = "manta-collator-selection"
 version = "3.2.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -5459,7 +5459,7 @@ dependencies = [
 [[package]]
 name = "manta-primitives"
 version = "3.2.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -5481,7 +5481,7 @@ dependencies = [
 [[package]]
 name = "manta-runtime"
 version = "3.2.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 dependencies = [
  "cumulus-pallet-aura-ext",
  "cumulus-pallet-dmp-queue",
@@ -5554,7 +5554,7 @@ dependencies = [
 [[package]]
 name = "manta-signer"
 version = "0.6.0"
-source = "git+https://github.com/manta-network/manta-signer#24745c4a4d1ed1fd045327a0728ea09b742e1fe0"
+source = "git+https://github.com/manta-network/manta-signer#80cc030290be9d568a5c9b1cf1b2405fa53b7760"
 dependencies = [
  "argon2",
  "async-std",
@@ -6276,7 +6276,7 @@ dependencies = [
 [[package]]
 name = "pallet-asset-manager"
 version = "3.2.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -6648,7 +6648,7 @@ dependencies = [
 [[package]]
 name = "pallet-manta-pay"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -7032,7 +7032,7 @@ dependencies = [
 [[package]]
 name = "pallet-tx-pause"
 version = "3.2.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -9159,7 +9159,7 @@ dependencies = [
 [[package]]
 name = "runtime-common"
 version = "3.2.0"
-source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#805eeee435b7799f8ebc36eca4731acbb8ef8a5e"
+source = "git+https://github.com/manta-network/Manta?branch=fix/add-back-cli-lib#226c1924c09b0e292554109d726a1554388da602"
 
 [[package]]
 name = "rustc-demangle"
