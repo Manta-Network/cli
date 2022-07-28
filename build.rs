@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with manta-cli.  If not, see <http://www.gnu.org/licenses/>.
 
-use manta_cli::cli;
+//! Manta CLI Build Script
 
-fn main() {
-    cli::run_and_exit()
-}
+fn main() {}
