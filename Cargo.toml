@@ -35,13 +35,13 @@ signer = ["async-std", "manta-crypto", "manta-signer", "rpassword"]
 sim = ["manta-crypto", "manta-pay", "manta-parameters", "manta-util"]
 
 [dependencies]
-anyhow = { version = "1.0.58", default-features = false }
+anyhow = { version = "1.0.59", default-features = false }
 async-std = { version = "1.12.0", optional = true, default-features = false, features = ["attributes", "tokio1"] }
-clap = { version = "3.2.15", default-features = false, features = ["color", "derive", "std", "suggestions", "unicode", "wrap_help"] }
+clap = { version = "3.2.16", default-features = false, features = ["color", "derive", "std", "suggestions", "unicode", "wrap_help"] }
 clap-verbosity-flag = { version = "1.0.1", default-features = false }
 derivative = { version = "2.2.0", default-features = false, features = ["use_core"] }
 derive_more = { version = "0.99.17", default-features = false, features = ["display", "error", "from_str"] }
-manta = { git = "https://github.com/manta-network/Manta", branch = "fix/manta-rs-v0.5.4", optional = true, default-features = false }
+manta = { git = "https://github.com/manta-network/Manta", optional = true, default-features = false }
 manta-crypto = { git = "https://github.com/manta-network/manta-rs", tag = "v0.5.4", optional = true, default-features = false, features = ["getrandom"] }
 manta-parameters = { git = "https://github.com/manta-network/manta-rs", tag = "v0.5.4", optional = true, default-features = false, features = ["download"] }
 manta-pay = { git = "https://github.com/manta-network/manta-rs", tag = "v0.5.4", optional = true, default-features = false, features = ["clap", "groth16", "scale-std", "simulation"] }
