@@ -16,18 +16,9 @@
 
 //! Simulation CLI
 
-use crate::cli::{ErrorKind, Parser, ParserExt, Result, TempDir, Verbosity};
+use crate::cli::{ErrorKind, Parser, ParserExt, Result, Verbosity};
 use manta_crypto::rand::OsRng;
-use manta_pay::{
-    config::{
-        MultiProvingContext, MultiVerifyingContext, NoteEncryptionScheme, Parameters,
-        ProvingContext, UtxoAccumulatorModel, UtxoCommitmentScheme, VerifyingContext,
-        VoidNumberCommitmentScheme,
-    },
-    simulation::Simulation,
-};
-use manta_util::codec::{Decode, IoReader};
-use std::fs::File;
+use manta_pay::{parameters, simulation::Simulation};
 
 /// Simulation CLI
 #[derive(Clone, Debug, Parser)]
@@ -43,8 +34,9 @@ impl Arguments {
     pub fn run(self, verbose: Verbosity) -> Result {
         // FIXME: Use the verbosity flag.
         let _ = verbose;
+        let tempdir = Self::tempdir()?;
         let (proving_context, verifying_context, parameters, utxo_accumulator_model) =
-            match manta_parameters::load_parameters(Self::tempdir()?) {
+            match parameters::load_parameters(tempdir.path()) {
                 Ok(data) => data,
                 Err(err) => {
                     return Self::with_error(

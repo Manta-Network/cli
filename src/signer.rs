@@ -24,7 +24,7 @@ use manta_crypto::rand::{CryptoRng, OsRng, RngCore, Sample};
 use manta_signer::{
     config::Config,
     secret::{Authorizer, Password, PasswordFuture, SecretString},
-    service,
+    service::{Error, Server},
 };
 use std::path::PathBuf;
 
@@ -77,6 +77,15 @@ impl Authorizer for MockUser {
     fn password(&mut self) -> PasswordFuture {
         Box::pin(async move { Password::from_known(self.0.clone()) })
     }
+}
+
+/// Builds and starts a signer server from `config` and `authorizer`.
+#[inline]
+async fn build_and_start<A>(config: Config, authorizer: A) -> Result<(), Error>
+where
+    A: Authorizer,
+{
+    Server::build(config, authorizer).await?.start().await
 }
 
 /// Signer Command
@@ -156,9 +165,9 @@ impl Arguments {
                 // NOTE: We have to use `async_std` here because the `serivce` uses it internally.
                 if let Err(err) = async_std::task::block_on(async {
                     if temp {
-                        service::start(config, MockUser::new(&mut OsRng)).await
+                        build_and_start(config, MockUser::new(&mut OsRng)).await
                     } else {
-                        service::start(config, User).await
+                        build_and_start(config, User).await
                     }
                 }) {
                     Self::with_error(
