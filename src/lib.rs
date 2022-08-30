@@ -14,12 +14,38 @@
 // You should have received a copy of the GNU General Public License
 // along with manta-cli.  If not, see <http://www.gnu.org/licenses/>.
 
-//! Manta Pay Command Line Interface
+//! Manta Command Line Interface
 
 #![cfg_attr(doc_cfg, feature(doc_cfg))]
 #![forbid(rustdoc::broken_intra_doc_links)]
 #![forbid(missing_docs)]
 
 extern crate alloc;
+extern crate derive_more;
 
 pub mod cli;
+
+#[cfg(feature = "node")]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "node")))]
+pub mod node;
+
+#[cfg(feature = "signer")]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "signer")))]
+pub mod signer;
+
+#[cfg(feature = "sim")]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "sim")))]
+pub mod sim;
+
+/// Runtime Kind
+#[derive(cli::ArgEnum, Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum Runtime {
+    /// Manta Runtime
+    Manta,
+
+    /// Calamari Runtime
+    Calamari,
+
+    /// Dolphin Runtime
+    Dolphin,
+}
