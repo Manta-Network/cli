@@ -1129,7 +1129,7 @@ checksum = "c1db59621ec70f09c5e9b597b220c7a2b43611f4710dc03ceb8748637775692c"
 [[package]]
 name = "calamari-runtime"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "calamari-vesting",
  "cumulus-pallet-dmp-queue",
@@ -1203,7 +1203,7 @@ dependencies = [
 [[package]]
 name = "calamari-vesting"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -2584,7 +2584,7 @@ dependencies = [
 [[package]]
 name = "dolphin-runtime"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "cumulus-pallet-dmp-queue",
  "cumulus-pallet-parachain-system",
@@ -5148,7 +5148,7 @@ dependencies = [
 [[package]]
 name = "manta"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "async-trait",
  "calamari-runtime",
@@ -5291,7 +5291,7 @@ dependencies = [
 [[package]]
 name = "manta-collator-selection"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -5472,7 +5472,7 @@ dependencies = [
 [[package]]
 name = "manta-primitives"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -5493,7 +5493,7 @@ dependencies = [
 [[package]]
 name = "manta-runtime"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "cumulus-pallet-aura-ext",
  "cumulus-pallet-dmp-queue",
@@ -6350,7 +6350,7 @@ dependencies = [
 [[package]]
 name = "pallet-asset-manager"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -6774,7 +6774,7 @@ dependencies = [
 [[package]]
 name = "pallet-manta-pay"
 version = "0.4.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -7139,7 +7139,7 @@ dependencies = [
 [[package]]
 name = "pallet-tx-pause"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -9290,7 +9290,7 @@ dependencies = [
 [[package]]
 name = "runtime-common"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "frame-support",
  "manta-primitives",
@@ -10764,7 +10764,7 @@ dependencies = [
 [[package]]
 name = "session-key-primitives"
 version = "3.3.0"
-source = "git+https://github.com/manta-network/Manta#5e787669ade5e9f60c2dcba9b27253ce18dc7c1a"
+source = "git+https://github.com/manta-network/Manta#07daf89f15e35a148a5bccad095febb3fbeea51c"
 dependencies = [
  "manta-primitives",
  "nimbus-primitives",
