@@ -35,7 +35,7 @@ signer = ["async-std", "manta-crypto", "manta-signer", "rpassword"]
 sim = ["manta-crypto", "manta-pay", "manta-parameters", "manta-util"]
 
 [dependencies]
-anyhow = { version = "1.0.62", default-features = false }
+anyhow = { version = "1.0.63", default-features = false }
 async-std = { version = "1.12.0", optional = true, default-features = false, features = ["attributes", "tokio1"] }
 clap = { version = "3.2.18", default-features = false, features = ["color", "derive", "std", "suggestions", "unicode", "wrap_help"] }
 clap-verbosity-flag = { version = "1.0.1", default-features = false }
