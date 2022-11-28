@@ -5283,7 +5283,7 @@ dependencies = [
  "manta-pay 0.5.4 (git+https://github.com/manta-network/manta-rs)",
  "manta-signer",
  "manta-util 0.5.4 (git+https://github.com/manta-network/manta-rs)",
- "rpassword 6.0.1",
+ "rpassword 7.2.0",
  "tempfile",
  "tokio",
 ]
@@ -9262,13 +9262,12 @@ dependencies = [
 
 [[package]]
 name = "rpassword"
-version = "6.0.1"
+version = "7.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2bf099a1888612545b683d2661a1940089f6c2e5a8e38979b2159da876bfd956"
+checksum = "6678cf63ab3491898c0d021b493c94c9b221d91295294a2a5746eacbe5928322"
 dependencies = [
  "libc",
- "serde",
- "serde_json",
+ "rtoolbox",
  "winapi",
 ]
 
@@ -9285,6 +9284,16 @@ dependencies = [
  "netlink-proto",
  "nix",
  "thiserror",
+]
+
+[[package]]
+name = "rtoolbox"
+version = "0.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "034e22c514f5c0cb8a10ff341b9b048b5ceb21591f31c8f44c43b960f9b3524a"
+dependencies = [
+ "libc",
+ "winapi",
 ]
 
 [[package]]
